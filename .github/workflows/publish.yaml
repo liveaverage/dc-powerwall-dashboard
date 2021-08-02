@@ -9,5 +9,7 @@ jobs:
         run: docker-compose up -d
       - name: Pause and list containers
         run: sleep 10 && docker ps -a
+      - name: Investigate failures
+        run: docker logs grafana
       - name: Test
         run: docker run --network container:grafana appropriate/curl -s --retry 10 --retry-connrefused http://localhost:3000/
