@@ -7,5 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the stack
         run: docker-compose up -d
+      - name: Pause and list containers
+        run: sleep 10 && docker ps -a
       - name: Test
         run: docker run --network container:grafana appropriate/curl -s --retry 10 --retry-connrefused http://localhost:3000/
