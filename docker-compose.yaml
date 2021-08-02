@@ -35,4 +35,3 @@ services:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources:z
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:z
       - ./grafana/baked:/var/lib/grafana/dashboards:z
-      - /srv/powerwall/grafana:/var/lib/grafana:z
