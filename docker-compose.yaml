@@ -16,8 +16,6 @@ services:
   influxdb:
     image: docker.io/influxdb:1.8
     container_name: influxdb
-    ports:
-        - 8086:8086
     restart: unless-stopped
     volumes:
         - ./influxdb/etc:/etc/influxdb
@@ -32,7 +30,6 @@ services:
       - GF_SECURITY_ADMIN_USER=powerwall
       - GF_SECURITY_ADMIN_PASSWORD=powerwall
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
-      - POWERWALL_HOST=powerwall
       - POWERWALL_LOCATION="lat=29.7231806&lon=-82.5562896"
     volumes:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources:z
