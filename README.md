@@ -8,8 +8,33 @@ This project is a complete monitoring & trending stack for Tesla Powerwall & Bac
 
 # Usage
 
-- FIXME
+Clone the project:
+```
+git clone
+```
 
+Before launching ensure you update `docker-compose.yaml` and hardset the appropriate environment variables **or** set the following environment variables in a `.env` file in your same working repository directory:
+```
+POWERWALL_IP=192.168.1.100
+POWERWALL_PASS=0R2D2
+POWERWALL_LOCATION='lat=29.7231806&lon=-82.5562896'
+```
+
+### Start the stack
+Refer to the notes below if running podman, or simply execute `docker-compose` if running standard, community docker:
+```
+sudo docker-compose up
+```
+
+### Access the dashboard
+To access the dashboard you can visit **http://localhost:3000** and login using username `powerwall` and password `powerwall` (configurable in your `docker-compose.yaml` file or set via environment variable).
+
+### Stop the stack
+
+```
+sudo docker-compose stop
+sudo docker rm $(sudo docker ps -q --filter "status=exited")
+```
 # Notes
 
 - If using podman you may need to cleanup containers before re-running the stack: `sudo docker rm $(sudo docker ps -q --filter "status=exited")`

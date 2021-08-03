@@ -3,16 +3,20 @@ services:
   telegraf:
     image: docker.io/telegraf:1.19
     container_name: telegraf
-    # command:
-    # curl script from NGINX sidecar & execute - script should call:
-    # /usr/bin/telegraf --config /etc/telegraf/telegraf.conf --config-directory /etc/telegraf/telegraf.d &
-    # Script for cookie/token generation
+    command:
+      - "bash"
+      - "-xe"
+      - "/tmp/entrypoint.sh"
     restart: unless-stopped
+    environment: 
+      - POWERWALL_PASS=${POWERWALL_PASS}
+      - POWERWALL_LOCATION=${POWERWALL_LOCATION}
     volumes:
+      - ./telegraf/entrypoint.sh:/tmp/entrypoint.sh:z
       - ./telegraf/etc:/etc/telegraf:z
       - ./powerwall_auth:/tmp/cookie:z
     extra_hosts:
-      - "powerwall:192.168.1.92"
+      - powerwall:${POWERWALL_IP}
   influxdb:
     image: docker.io/influxdb:1.8
     container_name: influxdb
@@ -30,7 +34,7 @@ services:
       - GF_SECURITY_ADMIN_USER=powerwall
       - GF_SECURITY_ADMIN_PASSWORD=powerwall
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
-      - POWERWALL_LOCATION="lat=29.7231806&lon=-82.5562896"
+      - POWERWALL_LOCATION=${POWERWALL_LOCATION}
     volumes:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources:z
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:z

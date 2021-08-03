@@ -12,7 +12,7 @@
     insecure_skip_verify = true
     timeout = "5s"
     data_format = "json"
-    headers = {"Cookie" = "AuthCookie=YbUqGIjOMPKjqr_2FlxFZ98GhgS8IxaUJLyJwLBHBFwkxYMRUxNp0yp9zjVa64eHXBpV6C7uS8lTtqV9jd02zA==; UserRecord=eyJlbWFpbCI6InR5bGVyQHBhcGVyc3RyZWV0c29hcC5jb20iLCJmaXJzdG5hbWUiOiJUZXNsYSIsImxhc3RuYW1lIjoiRW5lcmd5Iiwicm9sZXMiOlsiSG9tZV9Pd25lciJdLCJ0b2tlbiI6IlliVXFHSWpPTVBLanFyXzJGbHhGWjk4R2hnUzhJeGFVSkx5SndMQkhCRndreFlNUlV4TnAweXA5empWYTY0ZUhYQnBWNkM3dVM4bFR0cVY5amQwMnpBPT0iLCJwcm92aWRlciI6IkJhc2ljIiwibG9naW5UaW1lIjoiMjAyMS0wOC0wM1QxODoyNTozNi44MDQ1NTYxNjgtMDQ6MDAifQ==" }
+    headers = {"Cookie" = "AuthCookie=COOKIE_AUTH; UserRecord=COOKIE_REC" }
     bearer_token = "${TOKEN}"
 
 ## POWERWALL_LOCATION Should be in the string format "lat=29.7231806&lon=-82.5562896"
