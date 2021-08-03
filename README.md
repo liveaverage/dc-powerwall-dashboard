@@ -10,12 +10,13 @@ This project is a complete monitoring & trending stack for Tesla Powerwall & Bac
 
 Clone the project:
 ```
-git clone
+git clone https://github.com/liveaverage/dc-powerwall-dashboard.git
+cd dc-powerwall-dashboard/
 ```
 
 Before launching ensure you update `docker-compose.yaml` and hardset the appropriate environment variables **or** set the following environment variables in a `.env` file in your same working repository directory:
 ```
-POWERWALL_IP=192.168.1.100
+POWERWALL_IP=127.0.0.1
 POWERWALL_PASS=0R2D2
 POWERWALL_LOCATION='lat=29.7231806&lon=-82.5562896'
 ```
