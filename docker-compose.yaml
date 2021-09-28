@@ -2,6 +2,8 @@ version: "3.7"
 services:
   telegraf:
     image: docker.io/telegraf:1.19
+    labels:
+      io.containers.autoupdate: image
     container_name: telegraf
     command:
       - "bash"
@@ -19,6 +21,8 @@ services:
       - powerwall:${POWERWALL_IP}
   influxdb:
     image: docker.io/influxdb:1.8
+    labels:
+      io.containers.autoupdate: image
     container_name: influxdb
     restart: unless-stopped
     volumes:
@@ -26,6 +30,8 @@ services:
         - /srv/powerwall/influxdb:/var/lib/influxdb:z
   grafana:
     image: docker.io/grafana/grafana:7.5.10
+    labels:
+      io.containers.autoupdate: image
     container_name: grafana
     ports:
       - 3000:3000
