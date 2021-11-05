@@ -21,6 +21,11 @@ POWERWALL_PASS=0R2D2
 POWERWALL_LOCATION='lat=29.7231806&lon=-82.5562896'
 ```
 
+If you're mapping/mounting `telegraf` configuration from your current working directory you may need to modify file/folder permissions to permit modifications to `telegraf.conf` (required for authentication cookie insertion):
+```
+chmod -R ug+rw telegraf/
+```
+
 ### Start the stack
 Refer to the notes below if running podman, or simply execute `docker-compose` if running standard, community docker:
 ```
