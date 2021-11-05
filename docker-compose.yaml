@@ -41,6 +41,8 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=powerwall
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
       - POWERWALL_LOCATION=${POWERWALL_LOCATION}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${VIRTUAL_PORT}
     volumes:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources:z
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:z
