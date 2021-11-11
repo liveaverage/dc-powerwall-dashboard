@@ -23,7 +23,7 @@ POWERWALL_LOCATION='lat=29.7231806&lon=-82.5562896'
 
 If you're mapping/mounting `telegraf` configuration from your current working directory you may need to modify file/folder permissions to permit modifications to `telegraf.conf` (required for authentication cookie insertion):
 ```
-chmod -R ug+rw telegraf/
+chmod -R ug+rw telegraf/ powerwall_auth/
 ```
 
 ### Start the stack
