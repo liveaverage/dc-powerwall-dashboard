@@ -21,8 +21,9 @@ POWERWALL_PASS=0R2D2
 POWERWALL_LOCATION='lat=29.7231806&lon=-82.5562896'
 ```
 
-If you're mapping/mounting `telegraf` configuration from your current working directory you may need to modify file/folder permissions to permit modifications to `telegraf.conf` (required for authentication cookie insertion):
+If you're mapping/mounting `telegraf` configuration from your current working directory you may need to modify file/folder permissions and create/configure a local `powerwall_auth` directory to enable modifications to `telegraf.conf` (required for authentication cookie insertion):
 ```
+mkdir powerwall_auth
 chmod -R ug+rw telegraf/ powerwall_auth/
 ```
 
